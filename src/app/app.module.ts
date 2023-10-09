@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroModule } from './hero/hero.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 
 
@@ -17,7 +19,11 @@ import { DashboardModule } from './dashboard/dashboard.module';
     BrowserModule,
     HeroModule,
     DashboardModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+    InMemoryDataService, {dataEncapsulation:false}
+    )
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
